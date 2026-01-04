@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Search Student Result</h2>
+<form method="POST" class="mt-3">
+  <div class="mb-3">
+    <label class="form-label">Enter Roll Number</label>
+    <input type="text" name="roll_no" class="form-control" required />
+  </div>
+  <button type="submit" class="btn btn-info">Search</button>
+</form>
+{% endblock %}

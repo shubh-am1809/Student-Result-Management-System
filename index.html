@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="text-center">
+  <h1 class="mb-4">Student Result Management System</h1>
+
+  {% if session.get('role') in ['admin', 'teacher'] %}
+    <p class="lead">Welcome, {{ session.get('username') }} ({{ session.get('role') }})</p>
+    <div class="d-flex justify-content-center gap-3 mt-4">
+      {% if session.get('role') == 'admin' %}
+        <a href="{{ url_for('admin_dashboard') }}" class="btn btn-warning btn-lg">Admin Dashboard</a>
+        <a href="{{ url_for('add_student') }}" class="btn btn-primary btn-lg">Add Student</a>
+      {% endif %}
+      <a href="{{ url_for('add_result') }}" class="btn btn-success btn-lg">Add Result</a>
+      <a href="{{ url_for('search_result') }}" class="btn btn-info btn-lg">Search Result</a>
+    </div>
+  {% elif session.get('role') == 'student' %}
+    <p class="lead">Welcome, {{ session.get('username') }} (Student)</p>
+    <a href="{{ url_for('student_dashboard') }}" class="btn btn-primary btn-lg mt-3">
+      View My Results
+    </a>
+  {% endif %}
+</div>
+{% endblock %}

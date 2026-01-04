@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Add Result</h2>
+
+<form method="POST" class="mt-3">
+
+  <div class="mb-3">
+    <label class="form-label">Roll Number</label>
+    <input type="text" name="roll_no" class="form-control" required />
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Subject</label>
+    <input type="text" name="subject" class="form-control" required />
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Marks Obtained</label>
+    <input type="number" name="marks" class="form-control" required min="0" />
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Max Marks</label>
+    <input type="number" name="max_marks" class="form-control" required min="1" />
+  </div>
+
+  <button type="submit" class="btn btn-success">Save Result</button>
+</form>
+
+{% endblock %}
